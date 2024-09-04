@@ -3,6 +3,7 @@ import { PersonsModule } from './persons/persons.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CommonModule } from './common/common.module';
+import { FingerprintModule } from './fingerprint/fingerprint.module';
 
 @Module({
   imports: [
@@ -15,10 +16,11 @@ import { CommonModule } from './common/common.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       autoLoadEntities: true,
-      synchronize: true
+      synchronize: false
     }),
     PersonsModule,
-    CommonModule],
+    CommonModule,
+    FingerprintModule],
   controllers: [],
   providers: [],
 })

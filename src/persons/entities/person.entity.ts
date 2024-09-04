@@ -1,7 +1,7 @@
 import { IsString } from "class-validator";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
+@Entity({ schema: 'beneficiaries', name: 'persons' })
 export class Person {
 
     @PrimaryGeneratedColumn('increment')
@@ -50,7 +50,7 @@ export class Person {
     @Column('date',{
         nullable: true
     })
-    death_certificate: Date;
+    date_death: Date;
 
     @Column('text',{
         nullable: true
